@@ -7,10 +7,8 @@
 import java.io.*;
 
 class Executor {
-	public static void main(String [] args){
 
-		String command = "javac Prueba.java && java Prueba";
-
+	public void execute(String command){
 		ProcessBuilder pb = new ProcessBuilder();
 		pb.command("bash", "-c", command);
 
@@ -28,7 +26,7 @@ class Executor {
 
 			int exitValue = process.waitFor();
 			if(exitValue == 0){
-				System.out.println("Success!");
+				System.out.println("---------------Success!----------------");
 				System.out.println(output);
 				System.exit(0);
 			}else{
@@ -39,6 +37,11 @@ class Executor {
 		}catch (InterruptedException e){
 			e.printStackTrace();
 		}
+	}
+
+	public static void main(String[] args){
+		Executor exe = new Executor();
+		exe.execute("javac Prueba.java && java Prueba");
 	}
 }
 
