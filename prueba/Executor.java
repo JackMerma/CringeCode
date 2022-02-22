@@ -41,7 +41,7 @@ class Executor {
 
 	public static void main(String[] args){
 		Executor exe = new Executor();
-		exe.execute("javac Prueba.java && java Prueba < file.txt");
+		exe.execute("javac Prueba.java && java Prueba < input.txt > output.txt");
 	}
 }
 
