@@ -3,6 +3,12 @@
  * @created     : 22/02/2022
  * @filename    : Verificator
  */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+
 class Verificator {
 	public Verificator(){
 		//
@@ -13,11 +19,26 @@ class Verificator {
 		return 10;
 	}
 
-	private String getOutputUser(String code){
+	private String getOutput(String code){
+			
+		code += ".txt";
+		
+		String output = "";
 
-	}
-	private String getOutputBot(String code){
+		try{
+			File obj = new File(code);
+			Scanner scan = new Scanner(obj);
+			
+			while(scan.hasNextLine()){
+				output += scan.nextLine() + "\n";
+			}
 
+			scan.close();
+		}catch(FileNotFoundException e){
+			e.printStackTrace();
+		}
+
+		return output;
 	}
 
 	public void verificate(String code){
@@ -29,11 +50,15 @@ class Verificator {
 		//	salidas de usuario y esperadas
 		String outputBot, outputUser;
 
-		outputBot = getOutputBot(code);
-		outputUser = getOutputUser(code);
+		outputBot = getOutput("outputBot");
+		outputUser = getOutput("outputUser");
+
+		System.out.println(outputUser);
+		System.out.println(outputBot);
 	}
 	public static void main(String [] args){
-		//code
+		Verificator xx = new Verificator();
+		xx.verificate("XLOSOS-1230");
 	}
 }
 
