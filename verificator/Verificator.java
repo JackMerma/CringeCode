@@ -53,8 +53,34 @@ class Verificator {
 		outputBot = getOutput("outputBot");
 		outputUser = getOutput("outputUser");
 
-		System.out.println(outputUser);
-		System.out.println(outputBot);
+		//process
+		//
+		String botLine, userLine;
+
+		for(int i=0;i<cases && outputBot != "" && outputUser != "";i++){
+
+			botLine = outputBot.substring(0, outputBot.indexOf("\n"));
+			userLine = outputUser.substring(0, outputUser.indexOf("\n"));
+
+			//System.out.println(botLine);
+			//System.out.println(userLine);
+
+
+			if(botLine.compareTo(userLine) == 0){
+				if(botLine.indexOf("Case #") == -1){
+					//respuesta correcta
+					System.out.println("Caso "+(i+1)+" aceptado [user: "+userLine+" - bot: "+botLine+"]");
+				}else{
+					//cabecera
+					i--;
+				}
+			}else{
+				System.out.println("Case "+(i+1)+" no aceptado [user: "+userLine+" - bot: "+botLine+"]");
+			}
+
+			outputBot = outputBot.substring(outputBot.indexOf("\n")+1);
+			outputUser = outputUser.substring(outputUser.indexOf("\n")+1);
+		}
 	}
 	public static void main(String [] args){
 		Verificator xx = new Verificator();
