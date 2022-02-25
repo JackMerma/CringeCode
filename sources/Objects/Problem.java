@@ -3,7 +3,12 @@
  * @created     : 25/02/2022
  * @filename    : Problem
  */
-class Problem {
+
+import java.io.Serializable;
+
+class Problem implements Serializable{
+
+	private static final long serialVersionUID = 1L;
 
 	//parte superficial y basica
 	private String code;
@@ -15,6 +20,7 @@ class Problem {
 	private String explanation;
 	
 	//parte mecanica
+	private int cases;
 	private String input;
 	private String output;
 
@@ -47,16 +53,16 @@ class Problem {
 		this.explanation = explanation;
 	}
 
+	public void setCases(int cases){
+		this.cases = cases;
+	}
+
 	public void setInput(String input){
 		this.input = input;
 	}
 
 	public void setOutput(String output){
 		this.output = output;
-	}
-
-	public static void main(String [] args){
-		//code
 	}
 }
 
