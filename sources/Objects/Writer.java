@@ -7,32 +7,36 @@
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-class WriterObject {
+class Writer<O>{
 
-	private String path = "../files/problems";
+	private String path;
 
-	public void writeObject(Problem problem){
+	public Writer(String path){
+		this.path = path;
+	}
 
-		String completePath = this.path += "/" + problem.getCode(); 
+	public void write(O object, String name){
+
+		String completePath = this.path += "/" + name;
 
 		try{
 			FileOutputStream fo = new FileOutputStream(completePath);
 			ObjectOutputStream oo = new ObjectOutputStream(fo);
 			
-			oo.writeObject(problem);
+			oo.writeObject(object);
 			oo.close();
 			
-			System.out.println(problem.getCode() + " saved");
+			System.out.println(name + " saved");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
 	
 	public static void main(String []args){
-		Problem p1 = new Problem("P12022");
-		WriterObject wo = new WriterObject();
+		Problem p1 = new Problem("P2_2022");
+		Writer<Problem> wo = new Writer<Problem>("../files/problems");
 
-		wo.writeObject(p1);
+		wo.write(p1, p1.getCode());
 	}
 
 }
