@@ -37,6 +37,23 @@ class Problem {
 		}
 	}
 
+	public void setExamples(String[] examples){
+		for(int i=0;i<examples.length;i++){
+			this.examples += "Example " + (i+1) + "\n" + examples[i] + "\n";
+		}
+	}
+
+	public void setExplanation(String explanation){
+		this.explanation = explanation;
+	}
+
+	public void setInput(String input){
+		this.input = input;
+	}
+
+	public void setOutput(String output){
+		this.output = output;
+	}
 
 	public static void main(String [] args){
 		//code
