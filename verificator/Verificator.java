@@ -69,13 +69,13 @@ class Verificator {
 			if(botLine.compareTo(userLine) == 0){
 				if(botLine.indexOf("Case #") == -1){
 					//respuesta correcta
-					System.out.println("Caso "+(i+1)+" aceptado [user: "+userLine+" - bot: "+botLine+"]");
+					System.out.println("Caso "+(i+1)+" aceptado \t[user: "+userLine+" - bot: "+botLine+"]");
 				}else{
 					//cabecera
 					i--;
 				}
 			}else{
-				System.out.println("Case "+(i+1)+" no aceptado [user: "+userLine+" - bot: "+botLine+"]");
+				System.out.println("Case "+(i+1)+" no aceptado \t[user: "+userLine+" - bot: "+botLine+"]");
 			}
 
 			outputBot = outputBot.substring(outputBot.indexOf("\n")+1);
