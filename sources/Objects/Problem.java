@@ -64,6 +64,12 @@ class Problem implements Serializable{
 	public void setOutput(String output){
 		this.output = output;
 	}
+
+
+
+	public String getCode(){
+		return this.code;
+	}
 }
 
 

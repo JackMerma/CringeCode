@@ -11,9 +11,9 @@ class WriterObject {
 
 	private String path = "../files/problems";
 
-	public void writeObject(String code, Problem problem){
+	public void writeObject(Problem problem){
 
-		String completePath = this.path += "/" + code; 
+		String completePath = this.path += "/" + problem.getCode(); 
 
 		try{
 			FileOutputStream fo = new FileOutputStream(completePath);
@@ -22,12 +22,17 @@ class WriterObject {
 			oo.writeObject(problem);
 			oo.close();
 			
-			System.out.println(code + "saved");
+			System.out.println(problem.getCode() + " saved");
 		}catch(Exception e){
 			e.printStackTrace();
 		}
 	}
+	
+	public static void main(String []args){
+		Problem p1 = new Problem("P12022");
+		WriterObject wo = new WriterObject();
+
+		wo.writeObject(p1);
+	}
 
 }
-
-
