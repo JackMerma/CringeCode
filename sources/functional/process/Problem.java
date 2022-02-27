@@ -4,7 +4,7 @@
  * @filename    : Problem
  */
 
-package sources.Objects;
+package sources.functional.process;
 import java.io.Serializable;
 
 public class Problem implements Serializable{

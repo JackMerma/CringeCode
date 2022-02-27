@@ -4,7 +4,8 @@
  * @filename    : WriterObject
  */
 
-package sources.Objects;
+package sources.functional.process;
+
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
