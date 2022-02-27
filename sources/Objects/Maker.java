@@ -4,13 +4,19 @@
  * @filename    : Executor
  */
 
-import java.io.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 
-class Executor {
+class Maker {
 
 	private ProcessBuilder pb;
 
-	public void execute(String command){
+	public void execute(String code){
+
+		generateInputFile(code);
+
+
 		pb = new ProcessBuilder();
 		takeWayToRun(command);
 
@@ -54,6 +60,28 @@ class Executor {
 
 	private String getOs(){
 		return System.getProperty("os.name").toLowerCase();
+	}
+
+
+	private void generateInputFile(String code){
+		Reader<Problem> re = new Reader<Problem>("../files/problems");
+		Problem pro = re.read(code);
+		
+		String input = pro.getInput();
+
+		//genera el input en un archivo
+		writeInInput(input);
+	}
+
+	private void writeInInput(String input){
+		try{
+			FileWriter wri = new FileWriter("../file/process/input.txt");
+			wri.write(input);
+			wri.close();
+			System.out.println("Writed input");
+		}catch(IOException e){
+			e.printStackTrace();
+		}
 	}
 
 	public static void main(String[] args){
