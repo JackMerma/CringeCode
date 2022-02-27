@@ -4,9 +4,10 @@
  * @filename    : Problem
  */
 
+package sources.Objects;
 import java.io.Serializable;
 
-class Problem implements Serializable{
+public class Problem implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 
@@ -69,6 +70,10 @@ class Problem implements Serializable{
 
 	public String getCode(){
 		return this.code;
+	}
+
+	public String getInput(){
+		return this.input;
 	}
 }
 

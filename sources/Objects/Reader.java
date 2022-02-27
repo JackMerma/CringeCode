@@ -5,6 +5,7 @@
 * @description : _
 */
 
+package sources.Objects;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
@@ -35,10 +36,10 @@ public class Reader<O>{
 		}
 	}
 
-	public static void main(String []args){
-		Reader<Problem> re = new Reader<Problem>("../files/problems");
-		Problem k = re.read("P2_2022");
-		System.out.println(k.getCode());
-	}
+//	public static void main(String []args){
+//		Reader<Problem> re = new Reader<Problem>("../files/problems");
+//		Problem k = re.read("P2_2022");
+//		System.out.println(k.getCode());
+//	}
 }
 

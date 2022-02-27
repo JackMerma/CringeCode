@@ -4,10 +4,11 @@
  * @filename    : WriterObject
  */
 
+package sources.Objects;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-class Writer<O>{
+public class Writer<O>{
 
 	private String path;
 
@@ -32,11 +33,11 @@ class Writer<O>{
 		}
 	}
 	
-	public static void main(String []args){
-		Problem p1 = new Problem("P2_2022");
-		Writer<Problem> wo = new Writer<Problem>("../files/problems");
-
-		wo.write(p1, p1.getCode());
-	}
+//	public static void main(String []args){
+//		Problem p1 = new Problem("P2_2022");
+//		Writer<Problem> wo = new Writer<Problem>("../files/problems");
+//
+//		wo.write(p1, p1.getCode());
+//	}
 
 }

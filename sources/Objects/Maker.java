@@ -4,6 +4,8 @@
  * @filename    : Executor
  */
 
+package sources.Objects;
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
@@ -11,7 +13,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-class Maker {
+public class Maker {
 
 	private ProcessBuilder pb;
 
