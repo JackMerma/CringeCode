@@ -21,10 +21,8 @@ public class Maker {
 
 		generateInputFile(code);
 
-		String command = "javac sources/files/solutions/solution_"+code+".java && java -cp sources/files/solutions solution_"+code+" < sources/files/process/input.txt > sources/files/process/output.txt";
+		String command = "javac sources/files/solutions/"+code+".java && java -cp sources/files/solutions "+code+" < sources/files/process/input.txt > sources/files/process/output.txt";
 		//"javac Prueba.java && java Prueba < input.txt > output.txt"
-
-		System.out.println(command);
 
 		pb = new ProcessBuilder();
 		takeWayToRun(command);

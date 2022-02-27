@@ -11,7 +11,7 @@ import sources.Objects.*;
 public class Main{
 	public static void main(String[]args){
 		Problem pro1 = new Problem("NTN");//n times name
-		pro1.setInput("2\nJackson\nMerma\n");
+		pro1.setInput("3\nBarbara\nBojack\nRubi\n");
 
 		Writer<Problem> wri = new Writer<Problem>("sources/files/problems");
 		wri.write(pro1, pro1.getCode());
