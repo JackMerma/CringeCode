@@ -4,6 +4,9 @@
  * @filename    : Executor
  */
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,6 +18,9 @@ class Maker {
 	public void execute(String code){
 
 		generateInputFile(code);
+
+		String command = "javac ../file/solutions/solution_"+code+".java && ../file/solutions/solution_"+code+" < ../file/process/input.txt > ../file/process/output.txt";
+		//"javac Prueba.java && java Prueba < input.txt > output.txt"
 
 
 		pb = new ProcessBuilder();
@@ -82,11 +88,6 @@ class Maker {
 		}catch(IOException e){
 			e.printStackTrace();
 		}
-	}
-
-	public static void main(String[] args){
-		Executor exe = new Executor();
-		exe.execute("javac Prueba.java && java Prueba < input.txt > output.txt");
 	}
 }
 
