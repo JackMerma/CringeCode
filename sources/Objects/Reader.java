@@ -34,5 +34,11 @@ public class Reader<O>{
 			return null;
 		}
 	}
+
+	public static void main(String []args){
+		Reader<Problem> re = new Reader<Problem>("../files/problems");
+		Problem k = re.read("P2_2022");
+		System.out.println(k.getCode());
+	}
 }
 
