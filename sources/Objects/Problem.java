@@ -67,13 +67,42 @@ public class Problem implements Serializable{
 	}
 
 
+	//getters
 
 	public String getCode(){
 		return this.code;
 	}
 
+	public String getTitle(){
+		return this.title;
+	}
+
+	public String getDescription(){
+		return this.description;
+	}
+
+	public String getLimitations(){
+		return this.limitations;
+	}
+
+	public String getExamples(){
+		return this.examples;
+	}
+
+	public String getExplanation(){
+		return this.explanation;
+	}
+
+	public int getCases(){
+		return this.cases;
+	}
+
 	public String getInput(){
 		return this.input;
+	}
+
+	public String getOutput(){
+		return this.output;
 	}
 }
 
