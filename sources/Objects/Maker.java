@@ -21,9 +21,10 @@ public class Maker {
 
 		generateInputFile(code);
 
-		String command = "javac ../file/solutions/solution_"+code+".java && ../file/solutions/solution_"+code+" < ../file/process/input.txt > ../file/process/output.txt";
+		String command = "javac sources/files/solutions/solution_"+code+".java && java -cp sources/files/solutions solution_"+code+" < sources/files/process/input.txt > sources/files/process/output.txt";
 		//"javac Prueba.java && java Prueba < input.txt > output.txt"
 
+		System.out.println(command);
 
 		pb = new ProcessBuilder();
 		takeWayToRun(command);
@@ -72,7 +73,7 @@ public class Maker {
 
 
 	private void generateInputFile(String code){
-		Reader<Problem> re = new Reader<Problem>("../files/problems");
+		Reader<Problem> re = new Reader<Problem>("sources/files/problems");
 		Problem pro = re.read(code);
 		
 		String input = pro.getInput();
@@ -83,7 +84,7 @@ public class Maker {
 
 	private void writeInInput(String input){
 		try{
-			FileWriter wri = new FileWriter("../file/process/input.txt");
+			FileWriter wri = new FileWriter("sources/files/process/input.txt");
 			wri.write(input);
 			wri.close();
 			System.out.println("Writed input");
