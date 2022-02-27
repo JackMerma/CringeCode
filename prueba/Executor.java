@@ -8,9 +8,11 @@ import java.io.*;
 
 class Executor {
 
+	private ProcessBuilder pb;
+
 	public void execute(String command){
-		ProcessBuilder pb = new ProcessBuilder();
-		pb.command("bash", "-c", command);
+		pb = new ProcessBuilder();
+		takeWayToRun(command);
 
 		try{
 			Process process = pb.start();
@@ -37,6 +39,21 @@ class Executor {
 		}catch (InterruptedException e){
 			e.printStackTrace();
 		}
+	}
+
+	private void takeWayToRun(String command){
+		String os = getOs();
+		if(os.indexOf("linux") != -1){
+			pb.command("bash", "-c", command);
+		}else if(os.indexOf("windows") != -1){
+			pb.command("cmd.exe", "/c", command);
+		}else{
+			//others
+		}
+	}
+
+	private String getOs(){
+		return System.getProperty("os.name").toLowerCase();
 	}
 
 	public static void main(String[] args){
