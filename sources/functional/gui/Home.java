@@ -13,13 +13,14 @@ import javax.swing.*;
 
 public class Home{
 
+	public JPanel content=new JPanel(), nav=new JPanel();
+
 	public JPanel getHome(){
 		JPanel global = new JPanel();
-
 		global.setLayout(new BorderLayout());
 
-		JPanel nav = createNavigatorPanel();
-		JPanel content = createContentPanel();
+		content = createContentPanel();
+		nav = createNavigatorPanel(content);
 
 
 		global.add(nav, BorderLayout.NORTH);
@@ -29,14 +30,17 @@ public class Home{
 		return global;
 	}
 
-	private JPanel createNavigatorPanel(){
-		Nav nav = new Nav();
+	private JPanel createNavigatorPanel(JPanel content){
+		Nav nav = new Nav(content);
 		return nav.getNavigatorPanel();
 	}
 
 	private JPanel createContentPanel(){
-		JPanel content = new JPanel();
-		
+		content = new JPanel();
+		content.setLayout(new BorderLayout());
+
+		JLabel text = new JLabel("inicio");
+		content.add(text);
 
 		return content;
 	}

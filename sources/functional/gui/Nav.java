@@ -11,7 +11,16 @@ import java.util.*;
 import java.awt.*;
 import javax.swing.*;
 
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 public class Nav{
+
+	public JPanel box;
+
+	public Nav(JPanel content){
+		this.box = content;
+	}
 	
 	public JPanel getNavigatorPanel(){
 		JPanel global = new JPanel();
@@ -72,6 +81,40 @@ public class Nav{
 		JButton help = new JButton("Help");
 		JButton submissions = new JButton("Submissions");
 
+
+		//action listeners
+		//
+		home.addActionListener(new HomeListener());
+
+		news.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				//
+				JOptionPane.showMessageDialog(null, "NEWS!");
+			}
+		});
+
+		problems.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				//
+				JOptionPane.showMessageDialog(null, "PROBLEMS!");
+			}
+		});
+
+		help.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				//
+				JOptionPane.showMessageDialog(null, "HELP!");
+			}
+		});
+
+		submissions.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				//
+				JOptionPane.showMessageDialog(null, "SUBMISSIONS!");
+			}
+		});
+
+
 		principal.add(home);
 		principal.add(news);
 		principal.add(problems);
@@ -90,6 +133,23 @@ public class Nav{
 		panel.add(new JLabel(""), BorderLayout.SOUTH);
 		panel.add(new JLabel("   "), BorderLayout.EAST);
 		panel.add(new JLabel("   "), BorderLayout.WEST);
+	}
+
+
+
+
+	public class HomeListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+
+			box.removeAll();
+
+			JLabel texto = new JLabel("Hola mundo");
+			System.out.println("NOOO");
+			box.add(texto);
+
+			box.revalidate();
+			box.repaint();
+		}
 	}
 }
 
