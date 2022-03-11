@@ -84,7 +84,16 @@ public class Nav{
 
 		//action listeners
 		//
-		home.addActionListener(new HomeListener());
+		home.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				box.removeAll();
+
+				HomeBody newContent = new HomeBody();
+				box.add(newContent.getHomeBody());
+
+				box.revalidate();
+			}
+		});
 
 		news.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -134,22 +143,4 @@ public class Nav{
 		panel.add(new JLabel("   "), BorderLayout.EAST);
 		panel.add(new JLabel("   "), BorderLayout.WEST);
 	}
-
-
-
-
-	public class HomeListener implements ActionListener{
-		public void actionPerformed(ActionEvent e){
-
-			box.removeAll();
-
-			JLabel texto = new JLabel("Hola mundo");
-			System.out.println("NOOO");
-			box.add(texto);
-
-			box.revalidate();
-			box.repaint();
-		}
-	}
 }
-
