@@ -39,8 +39,8 @@ public class Home{
 		content = new JPanel();
 		content.setLayout(new BorderLayout());
 
-		JLabel text = new JLabel("inicio");
-		content.add(text);
+		HomeBody hb = new HomeBody();
+		content.add(hb.getHomeBody());
 
 		return content;
 	}

@@ -68,11 +68,11 @@ public class Nav{
 	}
 
 	private JPanel getUpperPanel(){
-		JPanel global = new JPanel();
-		global.setLayout(new BorderLayout());
+		JPanel global = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		
 
 		JPanel principal = new JPanel();
-		principal.setLayout(new GridLayout(1,5));
+		principal.setLayout(new GridLayout(1,5, 10, 10));
 
 		//barra de menu
 		JButton home = new JButton("Home");
@@ -130,9 +130,8 @@ public class Nav{
 		principal.add(help);
 		principal.add(submissions);
 
-
 		global.add(principal);
-		createBorders(global);
+		//createBorders(global);
 
 		return global;
 	}

@@ -37,11 +37,11 @@ public class HomeBody{
 				+ "<div class='body'>"
 
 				+ "<h1>Sobre el Software</h1>"
-				+ "<p><b>CringeCode</b> esta proyectada a ser una plataforma de programacion competitiva abierta (red social de programacion competitiva). En esta plataforma podra desarrollar retos que implica diferentes conocimientos de algoritmos,<br>"
-				+ " estructura de datos, tecnicas de programacion, complejidad temporal y espacial en algoritmos, entre muchas cosas mas.</p>"
+				+ "<p><b>CringeCode</b> esta proyectada a ser una plataforma cerrada de programacion competitiva (el usuario mide su rendimiento consigo mismo). En esta plataforma podra desarrollar retos que requiere de diferentes<br>"
+				+ " conocimientos de programacion: algoritmos, estructura de datos, tecnicas de programacion, complejidad temporal y espacial en algoritmos, entre muchas cosas mas.</p>"
 
 				+ "<h1>Como funciona?</h1>"
-				+ "<p>En la seccion de <b>problemas</b>, usted podra encontrar los problemas disponibles donde ya se encuentra implementada y creada el exoesqueleto que conforma un problema:</p>"
+				+ "<p>En la seccion de <b>problemas</b>, usted podra encontrar los problemas disponibles donde ya se encuentra implementado y creado el exoesqueleto que conforma un problema:</p>"
 				+ "<ul>"
 				+ "<li>Titulo del problema</li>"
 				+ "<li>Descripcion</li>"
@@ -51,9 +51,32 @@ public class HomeBody{
 				+ "</ul>"
 				+ "<p>En la descripcion, se presentara una forma de <b>input</b>, donde siempre se da una cantidad de casos y dependiendo de esta, usted debera generar una salidad correspondiente.<br>"
 				+ "Para desarrollar esta salida, usted debera generar un <b>archivo</b> de codigo, donde pueda darle solucion a dicho problema (debe generalizar su solucion para la entrada que requiere el problema)<br>"
-				+ "</p>"
+				+ "Luego, el juez (bot) de la plataforma se encargara de analizar su salida mediante el archivo que haya proporcionado. Solamente si su salida coincide con la salida esperada por el bot, se tomara al problema como <br>"
+				+ "resuelto</b>, ademas que se proporcionara mas detalles de su solucion (tiempo tomado y memoria consumida) de tal forma que pueda mejorar en otros intentos.</p>"
 
 				+ "<h1>Limitaciones</h1>"
+				+ "<ul>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "</ul>"
+
+				+ "<h2>Algunas indicaciones</h2>"
+				+ "<ul>"
+				+ "<li>Los Objetos y archivos que guardan los problemas y entradas estan resguardados (encriptados)</li>"
+				+ "<li>Si no tiene experiencia con este tipo de plataformas, es recomendable que mínimo pueda visitar y resolver alguno de los problemas en <a href='https://codingbat.com/'>CodingBat</a></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "</ul>"
+
+
+				+ "<h2>Sobre el autor</h2>"
+				+ "<p>Contacto: +51 999999999</p>"
 
 				+ "</div>"
 				+ "<div class='developer'>"
