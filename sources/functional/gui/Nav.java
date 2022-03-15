@@ -104,8 +104,14 @@ public class Nav{
 
 		problems.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				//
-				JOptionPane.showMessageDialog(null, "PROBLEMS!");
+				box.removeAll();
+
+				//HomeBody newContent = new HomeBody();
+				//box.add(newContent.getHomeBody());
+				ListProblems lp = new ListProblems();
+				box.add(lp.getListOfProblems());
+
+				box.revalidate();
 			}
 		});
 
