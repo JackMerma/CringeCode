@@ -3,7 +3,7 @@
  * @created     : 15/03/2022
  * @filename    : ListProblems
  */
-package sources.functional.gui;
+package sources.functional.process;
 
 import java.util.*;
 import java.awt.*;
@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 import java.io.File;
+
 
 public class ListProblems {
 	
@@ -32,29 +33,36 @@ public class ListProblems {
 		content.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 //		content.setLayout(new FlowLayout(FlowLayout.LEFT));
 
-		//String[] problems = getProblems();
 
 
 		//generacion de lista de problemas con GUI
+		//
 
 
+		File problems = new File("sources/files/problems");
 
-		content.add(new JButton("HOLA"));
-		content.add(new JButton("Si"));
-		content.add(new JButton("CLARO"));
-		content.add(new JButton("YEAH"));
-		
-		//for(String str : problems){
-		//	System.out.println(str);
-		//}
+		if(problems.list()!= null){
+			for(String problem : problems.list()){
+				content.add(createProblemPanelList(problem));
+			}
+		}else{
+			System.out.println("Vacio");
+		}
 
 
 		return content;
 	}
 
-	private String[] getProblems(){
-		File file = new File("../../files/problems");
-		return file.list();
+	private JPanel createProblemPanelList(String problem){
+		JPanel content = new JPanel(new BorderLayout());
+		
+		Reader reader = new Reader("sources/files/problems");
+		Problem pro = reader.read(problem);
+
+		//optencion de recursos
+
+
+		return content;
 	}
 
 	private void createBorders(JPanel panel){

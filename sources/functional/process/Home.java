@@ -5,7 +5,7 @@
 * @description : _
 */
 
-package sources.functional.gui;
+package sources.functional.process;
 
 import java.util.*;
 import java.awt.*;
