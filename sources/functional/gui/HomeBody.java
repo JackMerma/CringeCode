@@ -27,40 +27,66 @@ public class HomeBody{
 	private JPanel createContent(){
 		JPanel content = new JPanel();
 
-		JTextArea text = new JTextArea("Sobre el Software\n"
-				+ "CringeCode esta proyectada a ser una plataforma cerrada de programacion competitiva (el usuario mide su rendimiento consigo mismo). En esta plataforma podra desarrollar retos que requiere de\n"
-				+ "diferentes conocimientos de programacion: algoritmos, estructura de datos, tecnicas de programacion, complejidad temporal y espacial en algoritmos, entre muchas cosas mas.\n"
+		JEditorPane htmlContent = new JEditorPane();
+		htmlContent.setContentType("text/html;charset=UTF-8");
+		htmlContent.setEditable(false);
+		htmlContent.setText("<html>\n"
+				+ "<head><meta charset='utf-8'></head>"
+				+ "<body>"
+				+ "<div>"
+				+ "<div class='body'>"
 
-				+ "\n\nComo funciona?\n"
-				+ "En la seccion de problemas, usted podra encontrar los problemas disponibles donde ya se encuentra implementado y creado el exoesqueleto que conforma un problema:\n\n"
-				+ "+ Titulo del problema\n"
-				+ "+ Descripcion\n"
-				+ "+ Limitaciones\n"
-				+ "+ Ejemplos (si es necesario)\n"
-				+ "+ Explicacion (de ejemplos)\n\n"
-				+ "En la descripcion, se presentara una forma de input, donde siempre se da una cantidad de casos y dependiendo de esta, usted debera generar una salidad correspondiente.\n"
-				+ "Para desarrollar esta salida, usted debera generar un archivo de codigo, donde pueda darle solucion a dicho problema (debe generalizar su solucion para la entrada que requiere el problema)\n"
-				+ "Luego, el juez (bot) de la plataforma se encargara de analizar su salida mediante el archivo que haya proporcionado. Solamente si su salida coincide con la salida esperada por el bot, se tomara al\n"
-				+ "problema como resuelto, ademas que se proporcionara mas detalles de su solucion (tiempo tomado y memoria consumida) de tal forma que pueda mejorar en otros intentos.\n"
+				+ "<h1>Sobre el Software</h1>"
+				+ "<p><b>CringeCode</b> esta proyectada a ser una plataforma cerrada de programacion competitiva (el usuario mide su rendimiento consigo mismo). En esta plataforma podra desarrollar retos que requiere de diferentes<br>"
+				+ " conocimientos de programacion: algoritmos, estructura de datos, tecnicas de programacion, complejidad temporal y espacial en algoritmos, entre muchas cosas mas.</p>"
 
-				+ "\n\nLimitaciones\n"
-				+ "+ \n"
-				+ "+ \n"
-				+ "+ \n"
+				+ "<h1>Como funciona?</h1>"
+				+ "<p>En la seccion de <b>problemas</b>, usted podra encontrar los problemas disponibles donde ya se encuentra implementado y creado el exoesqueleto que conforma un problema:</p>"
+				+ "<ul>"
+				+ "<li>Titulo del problema</li>"
+				+ "<li>Descripcion</li>"
+				+ "<li>Limitaciones</li>"
+				+ "<li>Ejemplos (si es necesario)</li>"
+				+ "<li>Explicacion (de ejemplos)</li>"
+				+ "</ul>"
+				+ "<p>En la descripcion, se presentara una forma de <b>input</b>, donde siempre se da una cantidad de casos y dependiendo de esta, usted debera generar una salidad correspondiente.<br>"
+				+ "Para desarrollar esta salida, usted debera generar un <b>archivo</b> de codigo, donde pueda darle solucion a dicho problema (debe generalizar su solucion para la entrada que requiere el problema)<br>"
+				+ "Luego, el juez (bot) de la plataforma se encargara de analizar su salida mediante el archivo que haya proporcionado. Solamente si su salida coincide con la salida esperada por el bot, se tomara al problema como <br>"
+				+ "resuelto</b>, ademas que se proporcionara mas detalles de su solucion (tiempo tomado y memoria consumida) de tal forma que pueda mejorar en otros intentos.</p>"
 
-				+ "\n\nAlgunas indicaciones\n"
-				+ "+ Los Objetos y archivos que guardan los problemas y entradas estan resguardados (encriptados)\n"
-				+ "+ Si no tiene experiencia con este tipo de plataformas, es recomendable que mínimo pueda visitar y resolver alguno de los problemas en https://codingbat.com/\n"
-				+ "+ \n"
-				+ "+ \n"
-				+ "+ \n"
-				+ "+ \n"
+				+ "<h1>Limitaciones</h1>"
+				+ "<ul>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "</ul>"
+
+				+ "<h2>Algunas indicaciones</h2>"
+				+ "<ul>"
+				+ "<li>Los Objetos y archivos que guardan los problemas y entradas estan resguardados (encriptados)</li>"
+				+ "<li>Si no tiene experiencia con este tipo de plataformas, es recomendable que mínimo pueda visitar y resolver alguno de los problemas en <a href='https://codingbat.com/'>CodingBat</a></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "<li></li>"
+				+ "</ul>"
 
 
-				+ "\n\nSobre el autor\n"
-				+ "Contacto: +51 999999999\n");
+				+ "<h2>Sobre el autor</h2>"
+				+ "<p>Contacto: +51 999999999</p>"
 
-		content.add(text);
+				+ "</div>"
+				+ "<div class='developer'>"
+				+ "</div>"
+				+ "</div>"
+				+ "</body>"
+				+ "</html>");
+		htmlContent.getDocument().putProperty("IgnoreCharsetDirective", Boolean.TRUE);
+		content.add(htmlContent);
+
 		return content;
 	}
 

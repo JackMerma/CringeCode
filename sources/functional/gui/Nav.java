@@ -89,8 +89,12 @@ public class Nav{
 				box.removeAll();
 
 				HomeBody newContent = new HomeBody();
-				box.add(newContent.getHomeBody());
 
+				JScrollPane scroll = new JScrollPane(newContent.getHomeBody(),
+						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+				box.add(scroll);
 				box.revalidate();
 			}
 		});
@@ -105,12 +109,13 @@ public class Nav{
 		problems.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				box.removeAll();
-
-				//HomeBody newContent = new HomeBody();
-				//box.add(newContent.getHomeBody());
 				ListProblems lp = new ListProblems();
-				box.add(lp.getListOfProblems());
 
+				JScrollPane scroll = new JScrollPane(lp.getListOfProblems(),
+						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+				box.add(scroll);
 				box.revalidate();
 			}
 		});
