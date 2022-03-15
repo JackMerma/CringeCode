@@ -40,7 +40,12 @@ public class Home{
 		content.setLayout(new BorderLayout());
 
 		HomeBody hb = new HomeBody();
-		content.add(hb.getHomeBody());
+		//content.add(hb.getHomeBody());
+
+		JScrollPane scroll = new JScrollPane(hb.getHomeBody(),
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		content.add(scroll);
 
 		return content;
 	}
