@@ -6,7 +6,6 @@
 */
 
 import sources.functional.process.*;
-import sources.functional.gui.*;
 
 import java.util.*;
 import java.awt.*;
