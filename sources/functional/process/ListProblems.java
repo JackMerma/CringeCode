@@ -58,8 +58,10 @@ public class ListProblems {
 		
 
 		//problema
-		Reader<Problem> re = new Reader<Problem>("sources/files/problems");
-		Problem pro = re.read(problem);
+		String path = "sources/files/problems/"+problem;
+		System.out.println("path:"+path);
+		Problem pro = new Problem();
+		pro = pro.read(path);
 		//Problem pro = new Problem("jaja");
 
 		String title = pro.getTitle();

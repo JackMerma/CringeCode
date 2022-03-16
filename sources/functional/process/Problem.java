@@ -35,6 +35,10 @@ public class Problem implements Serializable{
 		this.code = code;
 	}
 
+	public Problem(){
+		this.code = "xxxxxxxx";
+	}
+
 	public void setTitle(String title){
 		this.title = title;
 	}
