@@ -5,7 +5,12 @@
  */
 
 package sources.functional.process;
+
 import java.io.Serializable;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public class Problem implements Serializable{
 
@@ -66,6 +71,39 @@ public class Problem implements Serializable{
 		this.output = output;
 	}
 
+
+	public Problem read(String path){
+		try{
+			FileInputStream fi = new FileInputStream(path);
+			ObjectInputStream oi = new ObjectInputStream(fi);
+
+			Object obj = oi.readObject();
+			oi.close();
+
+			System.out.println(path + " readed");
+
+			return (Problem) obj;
+		}catch(Exception e){
+//			e.printStackTrace();
+			System.out.println("No se puede abrir");
+			return null;
+		}
+	}
+
+
+	public void write(String path){
+		try{
+			FileOutputStream fo = new FileOutputStream(path);
+			ObjectOutputStream oo = new ObjectOutputStream(fo);
+			
+			oo.writeObject(this);
+			oo.close();
+			
+			System.out.println(path + " saved");
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
 
 	//getters
 

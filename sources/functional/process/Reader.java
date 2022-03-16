@@ -7,6 +7,8 @@
 
 package sources.functional.process;
 
+//import sources.functional.process.*;
+
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
@@ -32,15 +34,10 @@ public class Reader<O>{
 
 			return (O) obj;
 		}catch(Exception e){
-			e.printStackTrace();
+//			e.printStackTrace();
+			System.out.println("No se puede abrir");
 			return null;
 		}
 	}
-
-//	public static void main(String []args){
-//		Reader<Problem> re = new Reader<Problem>("../files/problems");
-//		Problem k = re.read("P2_2022");
-//		System.out.println(k.getCode());
-//	}
 }
 

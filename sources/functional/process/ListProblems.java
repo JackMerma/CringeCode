@@ -56,10 +56,18 @@ public class ListProblems {
 	private JPanel createProblemPanelList(String problem){
 		JPanel content = new JPanel(new BorderLayout());
 		
-		Reader reader = new Reader("sources/files/problems");
-		Problem pro = reader.read(problem);
 
-		//optencion de recursos
+		//problema
+		Reader<Problem> re = new Reader<Problem>("sources/files/problems");
+		Problem pro = re.read(problem);
+		//Problem pro = new Problem("jaja");
+
+		String title = pro.getTitle();
+		String description = pro.getDescription();
+
+		//gui
+		createBorders(content);
+		content.add(new JLabel(problem));
 
 
 		return content;
