@@ -61,7 +61,8 @@ public class ListProblems {
 		String path = "sources/files/problems/"+problem;
 		System.out.println("path:"+path);
 		Problem pro = new Problem();
-		pro = pro.read(path);
+//		pro = pro.read(path);
+		pro = Problem.read(path);
 		//Problem pro = new Problem("jaja");
 
 		String title = pro.getTitle();
@@ -69,7 +70,7 @@ public class ListProblems {
 
 		//gui
 		createBorders(content);
-		content.add(new JLabel(problem));
+		content.add(new JLabel(title));
 
 
 		return content;

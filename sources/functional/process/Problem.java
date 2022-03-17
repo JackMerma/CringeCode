@@ -76,7 +76,7 @@ public class Problem implements Serializable{
 	}
 
 
-	public Problem read(String path){
+	public static Problem read(String path){
 		try{
 			FileInputStream fi = new FileInputStream(path);
 			ObjectInputStream oi = new ObjectInputStream(fi);
@@ -95,12 +95,12 @@ public class Problem implements Serializable{
 	}
 
 
-	public void write(String path){
+	public static void write(Problem pro, String path){
 		try{
 			FileOutputStream fo = new FileOutputStream(path);
 			ObjectOutputStream oo = new ObjectOutputStream(fo);
 			
-			oo.writeObject(this);
+			oo.writeObject(pro);
 			oo.close();
 			
 			System.out.println(path + " saved");
