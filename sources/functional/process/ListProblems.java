@@ -16,6 +16,12 @@ import java.io.File;
 
 
 public class ListProblems {
+
+	private JPanel box;
+
+	public ListProblems(JPanel content){
+		this.box = content;
+	}
 	
 	public JPanel getListOfProblems(){
 		JPanel content = new JPanel();
@@ -66,10 +72,9 @@ public class ListProblems {
 
 		//problema
 		String path = "sources/files/problems/"+problem;
-		Problem pro = new Problem();
 //		pro = pro.read(path);
+		Problem pro = new Problem();
 		pro = Problem.read(path);
-		//Problem pro = new Problem("jaja");
 
 		String title = pro.getTitle();
 		String description = processDescription(pro.getDescription());
@@ -82,15 +87,24 @@ public class ListProblems {
 		JLabel titleLabel = new JLabel(title);
 		JButton solve = new JButton("Solucionar");
 
+		//es necesario que sea estatico
+		static Problem staticProblem = pro;
 
 		//listerner para solcionar
-		//
-		//
-		//
-		//
-		//
-		//
-		//
+		solve.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				box.removeAll();
+
+				ProblemDescription pd = new ProblemDescription(box, staticProblem);
+
+				JScrollPane scroll = new JScrollPane(pd.getProblemDescription(),
+						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 
+						JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+				box.add(scroll);
+				box.revalidate();
+			}
+		});
 
 		superContent.add(titleLabel);
 		superContent.add(solve);

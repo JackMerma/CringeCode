@@ -109,8 +109,8 @@ public class Nav{
 		problems.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				box.removeAll();
-				
-				ListProblems lp = new ListProblems();
+
+				ListProblems lp = new ListProblems(box);
 
 				JScrollPane scroll = new JScrollPane(lp.getListOfProblems(),
 						JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, 

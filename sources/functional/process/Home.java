@@ -10,7 +10,7 @@ package sources.functional.process;
 import java.util.*;
 import java.awt.*;
 import javax.swing.*;
-
+	
 public class Home{
 
 	public JPanel content=new JPanel(), nav=new JPanel();
