@@ -28,9 +28,43 @@ public class ProblemDescription {
         
 
         content.add(problemDescription());
-        content.add(submitContent(), BorderLayout.SOUTH);
+        //content.add(submitContent(), BorderLayout.SOUTH);
+        //content.add(buttonToReturn(), BorderLayout.NORTH);
+        System.out.println("SI");
+        return content;
+    }
+
+    private JPanel buttonToReturn(){
+        JPanel content = new JPanel(new FlowLayout());
+        JButton volver = new JButton("Back");
+
+        content.add(volver);
+        return content;
+    }
+
+    private JPanel problemDescription(){
+        JPanel content = new JPanel();
+        String body = "";
+
+        body += this.pro.getTitle()+this.pro.getDescription()+"<br>";
+        body += "<h3>Limitations</h3>"+this.pro.getLimitations()+"<br>";
+        body += "<h3>Example</h3>"+this.pro.getExample();
+        body += "<h3>Explanation</h3>"+this.pro.getExplanation();
+
+        JEditorPane htmlContent = new JEditorPane();
+        htmlContent.setContentType("text/html;charset=UTF-8");
+        htmlContent.setEditable(false);
+        htmlContent.setText(body);
+        //htmlContent.getDocument().putProperty("IgnoreCharsetDirective", Boolean.TRUE);
+
+        content.add(htmlContent);
+
+        return content;
+    }
+
+    private JPanel submitContent(){
+        JPanel content = new JPanel(new BorderLayout());
+
         return content;
     }
 }
-
-

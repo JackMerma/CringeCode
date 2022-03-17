@@ -22,7 +22,7 @@ public class Problem implements Serializable{
 	private String description;
 	private String limitations;
 
-	private String examples;
+	private String example;
 	private String explanation;
 	
 	//parte mecanica
@@ -53,7 +53,7 @@ public class Problem implements Serializable{
 				desc = "";
 			}
 		}
-		this.description = "<p>" + this.description + "</p>";
+		//this.description = "<p>" + this.description + "</p>";
 	}
 
 	public void setLimitations(String[] limitations){
@@ -63,11 +63,11 @@ public class Problem implements Serializable{
 		this.limitations = "<ul>"+this.limitations+"</ul>";
 	}
 
-	public void setExamples(String input, Sting output){
-		this.examples = "<h4>Input</h4>"
+	public void setExample(String input, String output){
+		this.example = "<h4>Input</h4>"
 			+ "<p>" + input + "</p>"
 			+ "<h4>Output</h4>"
-			+ "<p>" + output + "</p>"
+			+ "<p>" + output + "</p>";
 	}
 
 	public void setExplanation(String exp){
@@ -147,8 +147,8 @@ public class Problem implements Serializable{
 		return this.limitations;
 	}
 
-	public String getExamples(){
-		return this.examples;
+	public String getExample(){
+		return this.example;
 	}
 
 	public String getExplanation(){
