@@ -40,27 +40,47 @@ public class Problem implements Serializable{
 	}
 
 	public void setTitle(String title){
-		this.title = title;
+		this.title = "<h2>" + title + "</h2>";
 	}
 
-	public void setDescription(String description){
-		this.description = description;
+	public void setDescription(String desc){
+		while(desc != ""){
+			if(desc.length()>150){
+				this.description += desc.substring(0,150) + "<br>";
+				desc = desc.substring(151, desc.length());
+			}else{
+				this.description += desc;
+				desc = "";
+			}
+		}
+		this.description = "<p>" + this.description + "</p>";
 	}
 
 	public void setLimitations(String[] limitations){
 		for(int i=0;i<limitations.length;i++){
-			this.limitations += "* " + limitations[i] + "\n";
+			this.limitations += "<ul>" + limitations[i] + "</ul>";
 		}
+		this.limitations = "<ul>"+this.limitations+"</ul>";
 	}
 
-	public void setExamples(String[] examples){
-		for(int i=0;i<examples.length;i++){
-			this.examples += "Example " + (i+1) + "\n" + examples[i] + "\n";
-		}
+	public void setExamples(String input, Sting output){
+		this.examples = "<h4>Input</h4>"
+			+ "<p>" + input + "</p>"
+			+ "<h4>Output</h4>"
+			+ "<p>" + output + "</p>"
 	}
 
-	public void setExplanation(String explanation){
-		this.explanation = explanation;
+	public void setExplanation(String exp){
+		while(exp != ""){
+			if(exp.length()>150){
+				this.explanation += exp.substring(0,150) + "<br>";
+				exp = exp.substring(151, exp.length());
+			}else{
+				this.explanation += exp;
+				exp = "";
+			}
+		}
+		this.explanation = "<p>" + this.explanation + "</p>";
 	}
 
 	public void setCases(int cases){
