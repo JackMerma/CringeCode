@@ -23,6 +23,7 @@ public class ListProblems {
 
 		createBorders(content);
 		content.add(createContent());
+//		content.setAlignmentX(Component.LEFT_ALIGNMENT);
 
 		return content;
 	}
@@ -30,7 +31,7 @@ public class ListProblems {
 	private JPanel createContent(){
 		JPanel content = new JPanel();
 		content.setLayout(new BoxLayout(content, BoxLayout.PAGE_AXIS));
-		content.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+//		content.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 //		content.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 
@@ -41,9 +42,11 @@ public class ListProblems {
 
 		File problems = new File("sources/files/problems");
 
+		content.add(new JLabel("\n\n"));
 		if(problems.list()!= null){
 			for(String problem : problems.list()){
 				content.add(createProblemPanelList(problem));
+				content.add(new JLabel("\n\n"));
 			}
 		}else{
 			System.out.println("Vacio");
@@ -54,26 +57,71 @@ public class ListProblems {
 	}
 
 	private JPanel createProblemPanelList(String problem){
-		JPanel content = new JPanel(new BorderLayout());
+		JPanel content = new JPanel(new GridLayout(2,1));
+		content.setPreferredSize(new Dimension(680,70));
+		content.setMaximumSize(content.getPreferredSize());
+		content.setMinimumSize(content.getPreferredSize());
+		content.setAlignmentX(Component.LEFT_ALIGNMENT);
 		
 
 		//problema
 		String path = "sources/files/problems/"+problem;
-		System.out.println("path:"+path);
 		Problem pro = new Problem();
 //		pro = pro.read(path);
 		pro = Problem.read(path);
 		//Problem pro = new Problem("jaja");
 
 		String title = pro.getTitle();
-		String description = pro.getDescription();
+		String description = processDescription(pro.getDescription());
 
-		//gui
-		createBorders(content);
-		content.add(new JLabel(title));
+		
+		/*
+		 * Titulo y boton de solucionar
+		 */
+		JPanel superContent = new JPanel(new FlowLayout());
+		JLabel titleLabel = new JLabel(title);
+		JButton solve = new JButton("Solucionar");
 
+
+		//listerner para solcionar
+		//
+		//
+		//
+		//
+		//
+		//
+		//
+
+		superContent.add(titleLabel);
+		superContent.add(solve);
+		/*
+		 * Pequeña descripcion del problema (vista previa)
+		 */
+		JPanel upperContent = new JPanel(new BorderLayout());
+		//createBorders(upperContent);
+
+		JTextArea desc = new JTextArea(description);
+		upperContent.add(desc);
+
+		//principales
+		content.add(superContent);
+		content.add(upperContent);
 
 		return content;
+	}
+
+	private String processDescription(String desc){
+		if(desc.length()>100){
+			String out = desc.substring(0,100) + "\n";
+			desc = desc.substring(101,desc.length());
+
+			if(desc.length()>100)
+				out += desc.substring(0,100);
+			else
+				out += desc;
+			desc = out;
+		}
+		return desc+"...";
 	}
 
 	private void createBorders(JPanel panel){
@@ -83,5 +131,3 @@ public class ListProblems {
 		panel.add(new JLabel("   "), BorderLayout.WEST);
 	}
 }
-
-
