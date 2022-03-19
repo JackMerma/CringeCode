@@ -88,7 +88,7 @@ public class ListProblems {
 		JButton solve = new JButton("Solucionar");
 
 		//es necesario que sea estatico
-		static Problem staticProblem = pro;
+		final Problem staticProblem = pro;
 
 		//listerner para solcionar
 		solve.addActionListener(new ActionListener(){
