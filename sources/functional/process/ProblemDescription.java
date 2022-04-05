@@ -7,11 +7,15 @@
 package sources.functional.process;
 
 import java.util.*;
+import java.util.concurrent.CountDownLatch;
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
+import java.io.File;
 
 public class ProblemDescription {
 	private JPanel box;
@@ -65,7 +69,48 @@ public class ProblemDescription {
     }
 
     private JPanel submitContent(){
-        JPanel content = new JPanel(new BorderLayout());
+        JPanel content = new JPanel(new GridLayout(2,1));
+
+        //opcion para subir un archivo
+        JPanel openContent = new JPanel(new FlowLayout());
+        JButton openFile = new JButton("Open");
+        openFile.addActionListener(new ActionListener(){
+            public void actionPerformed(ActionEvent e){
+                JFileChooser filechoo = new JFileChooser();
+                filechoo.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("java", "JAVA");
+                filechoo.setFileFilter(filter);
+
+                int ans = filechoo.showDialog(filechoo, "Abrir");
+
+                if(ans != JFileChooser.CANCEL_OPTION){
+                    File fileName = filechoo.getSelectedFile();
+
+                    if(fileName != null && fileName.getName() != ""){
+                        System.out.println("PATH:" + fileName.getAbsolutePath());
+
+                        JLabel fname = new JLabel(fileName.getName());
+
+                        //System.out.println(filechoo.getName());
+                        openContent.removeAll();
+                        openContent.add(openFile);
+                        openContent.add(fname);
+                        openContent.revalidate();
+                    }
+                }
+            }
+        });
+
+        openContent.add(openFile);
+
+        //procesar la solucion al problema
+        JPanel submitContent = new JPanel(new FlowLayout());
+        JButton submit = new JButton("Sumit");
+        submitContent.add(submit);
+
+        content.add(openContent);
+        content.add(submitContent);
 
         return content;
     }
