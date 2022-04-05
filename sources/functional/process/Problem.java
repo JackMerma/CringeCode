@@ -17,18 +17,22 @@ public class Problem implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	//parte superficial y basica
-	private String code;
-	private String title;
-	private String description;
-	private String limitations;
+	private String code = "";
+	private String title = "";
+	private String titleHtml = "";
 
-	private String example;
-	private String explanation;
+	private String description = "";
+	private String descriptionHtml = "";
+
+	private String limitations = "";
+
+	private String example = "";
+	private String explanation = "";
 	
 	//parte mecanica
 	private int cases;
-	private String input;
-	private String output;
+	private String input = "";
+	private String output = "";
 
 	
 	public Problem(String code){
@@ -40,27 +44,31 @@ public class Problem implements Serializable{
 	}
 
 	public void setTitle(String title){
-		this.title = "<h2>" + title + "</h2>";
+		this.titleHtml = "<h2>" + title + "</h2>";
+		this.title = title;
 	}
 
 	public void setDescription(String desc){
+		this.description = desc;
+
 		while(desc != ""){
 			if(desc.length()>150){
-				this.description += desc.substring(0,150) + "<br>";
+				this.descriptionHtml += desc.substring(0,150) + "<br>";
 				desc = desc.substring(151, desc.length());
 			}else{
-				this.description += desc;
+				this.descriptionHtml += desc;
 				desc = "";
 			}
 		}
 		//this.description = "<p>" + this.description + "</p>";
 	}
 
-	public void setLimitations(String[] limitations){
-		for(int i=0;i<limitations.length;i++){
-			this.limitations += "<ul>" + limitations[i] + "</ul>";
+	public void setLimitations(String[] lim){
+		for(int i=0;i<lim.length;i++){
+			if(lim[i] != null)
+				this.limitations += "<li>" + lim[i] + "</li> \n";
 		}
-		this.limitations = "<ul>"+this.limitations+"</ul>";
+		this.limitations = "<ul> \n"+this.limitations+" \n</ul>";
 	}
 
 	public void setExample(String input, String output){
@@ -139,8 +147,16 @@ public class Problem implements Serializable{
 		return this.title;
 	}
 
+	public String getTitleHtml(){
+		return this.titleHtml;
+	}
+
 	public String getDescription(){
 		return this.description;
+	}
+
+	public String getDescriptionHtml(){
+		return this.descriptionHtml;
 	}
 
 	public String getLimitations(){

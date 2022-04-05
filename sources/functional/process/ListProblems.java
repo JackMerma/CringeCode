@@ -95,7 +95,7 @@ public class ListProblems {
 			public void actionPerformed(ActionEvent e){
 				box.removeAll();
 
-				System.out.println("holaaaaa");
+				//System.out.println("holaaaaa");
 				ProblemDescription pd = new ProblemDescription(box, staticProblem);
 
 				JScrollPane scroll = new JScrollPane(pd.getProblemDescription(),

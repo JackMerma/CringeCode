@@ -28,9 +28,9 @@ public class ProblemDescription {
         
 
         content.add(problemDescription());
-        //content.add(submitContent(), BorderLayout.SOUTH);
-        //content.add(buttonToReturn(), BorderLayout.NORTH);
-        System.out.println("SI");
+        content.add(submitContent(), BorderLayout.SOUTH);
+        content.add(buttonToReturn(), BorderLayout.NORTH);
+        //System.out.println("SI");
         return content;
     }
 
@@ -46,10 +46,12 @@ public class ProblemDescription {
         JPanel content = new JPanel();
         String body = "";
 
-        body += this.pro.getTitle()+this.pro.getDescription()+"<br>";
+        body += this.pro.getTitleHtml()+this.pro.getDescriptionHtml()+"<br>";
         body += "<h3>Limitations</h3>"+this.pro.getLimitations()+"<br>";
         body += "<h3>Example</h3>"+this.pro.getExample();
         body += "<h3>Explanation</h3>"+this.pro.getExplanation();
+
+        System.out.println(this.pro.getLimitations());
 
         JEditorPane htmlContent = new JEditorPane();
         htmlContent.setContentType("text/html;charset=UTF-8");
